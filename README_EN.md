@@ -19,16 +19,6 @@ you can track how power in HF / LF / VLF evolves over time.
 | 7 | FFT vs Wavelet comparison |
 | 8 | Comparison of different wavelet bases (Morlet, Gaussian) |
 
-## Why this matters for wearables
-
-Wrist HRV is a **non-stationary** signal. Classical FFT averages everything into a
-single estimate, losing information about short-lived events (stress episodes,
-ectopic beats, transients). CWT preserves time localization: critical for
-continuous functional-state monitoring.
-
-A bonus — **SDHF, SDLF, SDVLF** quantify the temporal variability of regulatory
-loops, which classical FFT cannot provide.
-
 ## Stack
 
 NumPy, SciPy (`CubicSpline`), pandas, matplotlib, **PyWavelets** (`pywt`).
@@ -49,15 +39,6 @@ NumPy, SciPy (`CubicSpline`), pandas, matplotlib, **PyWavelets** (`pywt`).
 ![Band dynamics](figures/fig2_band_timeseries.png)
 ![FFT vs Wavelet](figures/fig3_fft_vs_wavelet.png)
 
-## How to run
-
-```bash
-git clone https://github.com/<username>/hrv-wavelet-analysis.git
-cd hrv-wavelet-analysis
-pip install -r requirements.txt
-jupyter notebook hrv_wavelet.ipynb
-```
-
 ## Structure
 
 ```
@@ -70,22 +51,3 @@ hrv-wavelet-analysis/
 ├── README.md / README_EN.md
 └── LICENSE
 ```
-
-## Related
-
-- [hrv-analysis](https://github.com/anbix/hrv-analysis) — statistics, geometric, FFT, PARS.
-- hrv-nonlinear-dynamics — Hurst, DFA (in progress).
-
-## References
-
-- Mallat S. *A Wavelet Tour of Signal Processing*. Academic Press, 1999.
-- Akay M. *Time Frequency and Wavelets in Biomedical Signal Processing*. IEEE Press, 1998.
-- Pichot V. et al. (1999). Wavelet transform to quantify HRV: a study in athletes. *Eur J Appl Physiol*.
-
-## Author
-
-Anastasiia Birdina · birdinanastia@gmail.com
-
-## License
-
-MIT — see [LICENSE](LICENSE).

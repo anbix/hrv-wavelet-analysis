@@ -19,16 +19,6 @@
 | 7 | Сравнение FFT vs Wavelet |
 | 8 | Сравнение разных базисных вейвлетов (Морле, Гаусс) |
 
-## Зачем это для wearable / Healbe
-
-ВСР с браслета — **нестационарный** сигнал. Классический FFT усредняет всё в одну
-оценку, теряя информацию о коротких событиях (стресс-эпизоды, экстрасистолы,
-переходные процессы). CWT сохраняет временную локализацию: это критично для
-непрерывного мониторинга функционального состояния.
-
-Дополнительный бонус — **SDHF, SDLF, SDVLF** оценивают изменчивость регуляторных
-контуров во времени, что невозможно получить из обычного FFT.
-
 ## Стек
 
 NumPy, SciPy (`CubicSpline`), pandas, matplotlib, **PyWavelets** (`pywt`).
@@ -49,14 +39,6 @@ NumPy, SciPy (`CubicSpline`), pandas, matplotlib, **PyWavelets** (`pywt`).
 ![Динамика по полосам](figures/fig2_band_timeseries.png)
 ![FFT vs Wavelet](figures/fig3_fft_vs_wavelet.png)
 
-## Как запустить
-
-```bash
-git clone https://github.com/<username>/hrv-wavelet-analysis.git
-cd hrv-wavelet-analysis
-pip install -r requirements.txt
-jupyter notebook hrv_wavelet.ipynb
-```
 
 ## Структура
 
@@ -70,22 +52,3 @@ hrv-wavelet-analysis/
 ├── README.md / README_EN.md
 └── LICENSE
 ```
-
-## Связанные репозитории
-
-- [hrv-analysis](https://github.com/anbix/hrv-analysis) — статистика, геометрия, FFT, ПАРС.
-- hrv-nonlinear-dynamics — Херст, DFA (в работе).
-
-## Литература
-
-- Mallat S. *A Wavelet Tour of Signal Processing*. Academic Press, 1999.
-- Akay M. *Time Frequency and Wavelets in Biomedical Signal Processing*. IEEE Press, 1998.
-- Pichot V. et al. (1999). Wavelet transform to quantify HRV: a study in athletes. *Eur J Appl Physiol*.
-
-## Автор
-
-Анастасия Бирдина · birdinanastia@gmail.com
-
-## Лицензия
-
-MIT — см. [LICENSE](LICENSE).
